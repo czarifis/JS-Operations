@@ -91,7 +91,7 @@ function add2LinkedList() {
     node.next = newNode;
     var end = new Date().getTime();
     var time = end - start;
-    console.log('Adding an element into the array takes: ' + time);
+    console.log('Adding an element into the linked list takes: ' + time);
 }
 
 array25 = populateArray(25);
