@@ -53,6 +53,46 @@ function iterateArray(array) {
 function iterateLinkedList(list) {
     list.each(doSomething);
 }
+var ll;
+var array10k;
+function timePopOfLinkedList(size){
+    var start = new Date().getTime();
+    ll = populateLinkedList(size);
+    var end = new Date().getTime();
+    var time = end - start;
+    console.log('Generating Linked List takes: ' + time);
+}
+
+
+function timePopOfArray(size){
+    var start = new Date().getTime();
+    array10k = populateArray(size);
+    var end = new Date().getTime();
+    var time = end - start;
+    console.log('Generating an array takes: ' + time);
+}
+
+function add2Array() {
+    var start = new Date().getTime();
+    array10k.splice(1, 0, "new item");
+    var end = new Date().getTime();
+    var time = end - start;
+    console.log('Adding an element into the array takes: ' + time);
+}
+
+function add2LinkedList() {
+    var start = new Date().getTime();
+    var node = ll.head;
+    for (var i = 0 ; i<2; i++) {
+        node = node.next;
+    }
+    var newNode = new Node("new item");
+    newNode.next = node.next;
+    node.next = newNode;
+    var end = new Date().getTime();
+    var time = end - start;
+    console.log('Adding an element into the array takes: ' + time);
+}
 
 array25 = populateArray(25);
 array100 = populateArray(100);
