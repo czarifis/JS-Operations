@@ -135,6 +135,19 @@ function addToMiddleOf10KArray(){
     timedAdd2MiddleOfCustArray(array10000, 10000)
 }
 
+
+var array100K;
+function populate100K(){
+    array100K = timePopOfArray(100000)
+}
+
+function addTo100KArray(){
+    timedAdd2CustArray(array100K)
+}
+function addToMiddleOf100KArray(){
+    timedAdd2MiddleOfCustArray(array100K)
+}
+
 var array1M;
 function populate1M(){
     array1M = timePopOfArray(1000000)
