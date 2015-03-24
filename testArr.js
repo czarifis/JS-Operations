@@ -25,11 +25,8 @@ LinkedList.prototype.each = function(fn) {
 }
 
 function populateArray(amount) {
-<<<<<<< HEAD
-    ar = new Array();
-=======
+
     ar = [];
->>>>>>> 93f83217c7870970776dbd6657e89350151786d5
     for (i = 0; i < amount; i++) {
         ar[i] = "hello " + i;
     }
@@ -74,10 +71,8 @@ function timePopOfArray(size){
     var end = new Date().getTime();
     var time = end - start;
     console.log('Generating an array takes: ' + time);
-<<<<<<< HEAD
     return array10k
-=======
->>>>>>> 93f83217c7870970776dbd6657e89350151786d5
+
 }
 
 function add2Array() {
@@ -99,17 +94,14 @@ function add2LinkedList() {
     node.next = newNode;
     var end = new Date().getTime();
     var time = end - start;
-<<<<<<< HEAD
-    console.log('Adding an element into the array takes: ' + time);
-=======
+
     console.log('Adding an element into the linked list takes: ' + time);
->>>>>>> 93f83217c7870970776dbd6657e89350151786d5
 }
 
 array25 = populateArray(25);
 array100 = populateArray(100);
 ll25 = populateLinkedList(25);
-<<<<<<< HEAD
+
 ll100 = populateLinkedList(100);
 
 
@@ -217,6 +209,5 @@ function timedAdd2MiddleOfCustArray(Arr){
     var time = end - start;
     console.log('Adding an element into the middle of the array takes: ' + time);
 }
-=======
+
 ll100 = populateLinkedList(100);
->>>>>>> 93f83217c7870970776dbd6657e89350151786d5
