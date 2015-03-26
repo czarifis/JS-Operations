@@ -26,17 +26,18 @@ LinkedList.prototype.each = function(fn) {
 
 function populateArray(amount) {
 
-    ar = [];
-    for (i = 0; i < amount; i++) {
-        ar[i] = "hello " + i;
+    var ar = [];//new Array(amount);
+    for (var i = 0; i < amount; i++) {
+        //ar[i] = "hello ";
+        ar.push("hello");
     }
     return ar;
 }
 
 function populateLinkedList(amount) {
     ll = new LinkedList();
-    for (i = 0; i < amount; i++) {
-        ll.add("hello " + i);
+    for (var i = 0; i < amount; i++) {
+        ll.add("hello ");
     }
     return ll;
 }
@@ -101,7 +102,7 @@ function add2LinkedList() {
 array25 = populateArray(25);
 array100 = populateArray(100);
 ll25 = populateLinkedList(25);
- 
+
 ll100 = populateLinkedList(100);
 
 
