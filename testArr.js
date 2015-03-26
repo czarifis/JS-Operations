@@ -26,7 +26,7 @@ LinkedList.prototype.each = function(fn) {
 
 function populateArray(amount) {
 
-    var ar = [];//new Array(amount);
+    var ar = new Array(amount);
     for (var i = 0; i < amount; i++) {
         //ar[i] = "hello ";
         ar.push("hello");
