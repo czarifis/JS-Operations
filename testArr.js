@@ -37,7 +37,7 @@ function populateArray(amount) {
 function populateLinkedList(amount) {
     ll = new LinkedList();
     for (var i = 0; i < amount; i++) {
-        ll.add("hello ");
+        ll.add("hello");
     }
     return ll;
 }
@@ -56,16 +56,16 @@ function iterateLinkedList(list) {
     list.each(doSomething);
 }
 var ll;
-var array10k;
 function timePopOfLinkedList(size){
     var start = new Date().getTime();
     ll = populateLinkedList(size);
     var end = new Date().getTime();
     var time = end - start;
     console.log('Generating Linked List takes: ' + time);
+    return ll;
 }
 
-
+var array10k;
 function timePopOfArray(size){
     var start = new Date().getTime();
     array10k = populateArray(size);
@@ -105,7 +105,33 @@ ll25 = populateLinkedList(25);
 
 ll100 = populateLinkedList(100);
 
+function timedAdd2CustLinkedList(custLL, size){
+    var start = new Date().getTime();
+    var node = custLL.head;
+    for (var i = 0 ; i<size/2; i++) {
+        node = node.next;
+    }
+    var newNode = new Node("new item");
+    newNode.next = node.next;
+    node.next = newNode;
+    var end = new Date().getTime();
+    var time = end - start;
 
+    console.log('Adding an element into the linked list takes: ' + time);
+}
+
+
+function timedAdd2theBeginningOfCustLinkedList(custLL, size){
+    var start = new Date().getTime();
+    var node = custLL.head;
+    var newNode = new Node("new item");
+    newNode.next = node.next;
+    node.next = newNode;
+    var end = new Date().getTime();
+    var time = end - start;
+
+    console.log('Adding an element into the linked list takes: ' + time);
+}
 
 function timedAdd2CustArray(Arr){
     var start = new Date().getTime();
@@ -118,6 +144,43 @@ function timedAdd2CustArray(Arr){
 var array1k;
 function populate1K(){
     array1k = timePopOfArray(1000)
+}
+
+function addTo1KArray(){
+    timedAdd2CustArray(array1k)
+
+}
+function addToMiddleOf1KArray(){
+    timedAdd2MiddleOfCustArray(array1k,1000)
+}
+
+
+
+
+var array1MList;
+function populate1MList(){
+    array1MList = timePopOfLinkedList(1000000)
+}
+
+function addToMiddleOf1MList(){
+    timedAdd2CustLinkedList(array1MList,1000000);
+}
+
+function addTobeginningOf1MList(){
+    timedAdd2theBeginningOfCustLinkedList(array1MList,1000000);
+}
+
+var array10MList;
+function populate10MList(){
+    array10MList = timePopOfLinkedList(10000000)
+}
+
+function addToMiddleOf10MList(){
+    timedAdd2CustLinkedList(array10MList,10000000);
+}
+
+function addTobeginningOf10MList(){
+    timedAdd2theBeginningOfCustLinkedList(array10MList,10000000);
 }
 
 function addTo1KArray(){
