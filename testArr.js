@@ -16,13 +16,13 @@ LinkedList.prototype.add = function(data) {
     var node = new Node(data);
     this.tail.next = node;
     this.tail = node;
-}
+};
 
 LinkedList.prototype.each = function(fn) {
     for (var node = this.head.next; node; node = node.next) {
         fn(node.data);
     }
-}
+};
 
 function populateArray(amount) {
 
@@ -275,3 +275,4 @@ function timedAdd2MiddleOfCustArray(Arr){
 }
 
 ll100 = populateLinkedList(100);
+
