@@ -128,10 +128,9 @@ function populate_hashmap(ammount){
 
     for (var i = 0 ; i<ammount ; i++){
         map.markers[i] = {lat:i, long:i};
-        var sb = new StringBuffer();
-        var str = ['map.markers[',i,']'].join();
-        hash[str] = map.markers[i];
-        //hash['map.markers['+i+']'] = map.markers[i];
+        //var str = ['map.markers[',i,']'].join();
+        //hash[str] = map.markers[i];
+        hash['map.markers['+i+']'] = map.markers[i];
 
 
     }
