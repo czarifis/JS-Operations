@@ -8,7 +8,7 @@
  */
 var hsmp = {};
 var arr_hsmp = [];
-function populate_hashmap(size){
+function populate_hashmap_for_key_manipulation(size){
 
     for (var i = 0 ; i<size; i++) {
         arr_hsmp[i] = {id:i, val:"value "+i};
@@ -71,9 +71,9 @@ function traverse(o,func) {
 }
 
 
-function populate_structural_tree() {
-    temp_arr = [];
+function populate_structural_tree(amount) {
 
+    var start = new Date().getTime();
     var map = {};
     map.zoom=new Number(10);
     map.markers = [];
@@ -82,7 +82,7 @@ function populate_structural_tree() {
     t.head.ptr2obj = map;
 
     // adding zoom child
-    ch_zoom = new Node();
+    var ch_zoom = new Node();
     ch_zoom.ptr2obj = map.zoom;
     ch_zoom.parent = t.head.ptr2obj;
     t.head.children.push(ch_zoom);
@@ -90,24 +90,57 @@ function populate_structural_tree() {
 
 
     // adding markers child
-    ch_markers = new Node();
+    var ch_markers = new Node();
     ch_markers.ptr2obj = map.markers;
     ch_markers.parent = t.head.ptr2obj;
     t.head.children.push(ch_markers);
 
 
-    for (var i = 0 ; i<10 ; i++){
+    for (var i = 0 ; i<amount ; i++){
         map.markers[i] = {lat:i, long:i};
+        var marker_node = new Node();
+        marker_node.ptr2obj = map.markers[i];
+        marker_node.parent = ch_markers;
+        ch_markers.children.push(marker_node);
+
 
     }
     //traverse(map,process);
+    var end = new Date().getTime();
+    var time = end - start;
+    console.log('structural tree takes: ' + time +'ms');
 
     console.log(map,t);
-    var t = new Structural_tree();
 
-
-    return t;
 }
 
+function populate_hashmap(ammount){
+    var start = new Date().getTime();
+    var hash = {}
+    var map = {};
+    map.zoom=new Number(10);
+    map.markers = [];
 
+
+    hash['map'] = map;
+    hash['map.zoom'] = map.zoom;
+    hash['map.markers'] = map.markers;
+
+    for (var i = 0 ; i<ammount ; i++){
+        map.markers[i] = {lat:i, long:i};
+        var sb = new StringBuffer();
+        var str = ['map.markers[',i,']'].join();
+        hash[str] = map.markers[i];
+        //hash['map.markers['+i+']'] = map.markers[i];
+
+
+    }
+    //traverse(map,process);
+    var end = new Date().getTime();
+    var time = end - start;
+    console.log('hash takes: ' + time +'ms');
+
+
+
+}
 
